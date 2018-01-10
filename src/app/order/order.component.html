@@ -1,0 +1,14 @@
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Id</th>
+      <th>First Name</th>
+    </tr>
+  </thead>
+  <tbody class="table-striped">
+    <tr *ngFor="let order of orders">
+      <td>{{order.id}}</td>
+      <td>{{order.name}}</td>
+    </tr>
+  </tbody>
+</table>
