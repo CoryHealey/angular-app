@@ -11,9 +11,10 @@ import { AppComponent } from './app.component';
 import { OrderComponent } from './order/order.component';
 // Services
 import { InMemoryDataService } from './in-memory-data.service';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, OrderComponent],
+  declarations: [AppComponent, OrderComponent, OrderDetailComponent],
   imports: [
     BrowserModule,
     HttpModule,
@@ -26,6 +27,7 @@ import { InMemoryDataService } from './in-memory-data.service';
     }),
     RouterModule.forRoot([
       { path: 'order', component: OrderComponent },
+      { path: 'detail', component: OrderDetailComponent },
       { path: '', redirectTo: 'order', pathMatch: 'full' }
     ])
   ],
