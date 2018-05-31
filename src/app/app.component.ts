@@ -8,5 +8,5 @@ import { OrderService } from './services/order.service';
   providers: [OrderService]
 })
 export class AppComponent {
-  title = 'Angular App';
+  title = 'Cory Healey Angular Store';
 }

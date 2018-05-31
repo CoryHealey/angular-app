@@ -1,3 +1,25 @@
-<p>
-  order-detail works!
-</p>
+<div class="container-fluid">
+  <h3>Your Order</h3>
+  <form>
+    <div class="form-row">
+      <div class="form-group col-4">
+        <label for="id">ID</label>
+        <input type="text" class="form-control" id="id" value="{{order.id}}" aria-describedby="idHelp" disabled>
+        <small id="idHelp" class="form-text text-muted">This is a unique ID and cannot be changed</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputText1">Title</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" value="{{order.title}}">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputText1">Title</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" value="{{order.body}}">
+    </div>
+    <div class="form-row">
+      <button class="btn btn-dark mr-3" (click)="goBack()">Cancel</button>
+      <button type="submit" class="btn btn-primary float-right" (click)="save(order)">Submit</button>
+    </div>
+  </form>
+</div>
