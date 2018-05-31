@@ -1,7 +1,9 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
+
+import {catchError, map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// rxjs
-import { Observable } from 'rxjs/Observable';
 import '../shared/rxjs-extensions';
 // The Order model
 import { IOrder } from '../model/order';
@@ -17,23 +19,23 @@ export class OrderService {
   getOrders(): Observable<IOrder[]> {
     return (
       this.http
-        .get<any>(this.ordersUrl)
+        .get<any>(this.ordersUrl).pipe(
         // .do(data => console.log(JSON.stringify(data)))
-        .map(data => data)
-        .catch(this.handleError)
+        map(data => data),
+        catchError(this.handleError),)
     );
   }
   getOrder(id): Observable<IOrder[]> {
     return (
       this.http
-        .get<any>(this.orderUrl + id)
+        .get<any>(this.orderUrl + id).pipe(
         // .do(data => console.log(JSON.stringify(data)))
-        .map(data => data)
-        .catch(this.handleError)
+        map(data => data),
+        catchError(this.handleError),)
     );
   }
   private handleError(error: Response) {
     console.error(error);
-    return Observable.throw(error);
+    return observableThrowError(error);
   }
 }
