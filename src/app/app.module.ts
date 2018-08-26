@@ -10,9 +10,11 @@ import { AppComponent } from './app.component';
 import { OrderComponent } from './order/order.component';
 // Services
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { UserComponent } from './user/user.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
-  declarations: [AppComponent, OrderComponent, OrderDetailComponent],
+  declarations: [AppComponent, OrderComponent, OrderDetailComponent, UserComponent, UsersComponent],
   imports: [
     BrowserModule,
     HttpModule,

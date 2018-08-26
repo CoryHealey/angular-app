@@ -1,9 +1,8 @@
+import { throwError as observableThrowError, Observable } from 'rxjs';
 
-import {throwError as observableThrowError,  Observable } from 'rxjs';
-
-import {catchError, map} from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import '../shared/rxjs-extensions';
 // The Order model
 import { IOrder } from '../model/order';
@@ -17,21 +16,17 @@ export class OrderService {
   constructor(private http: HttpClient) {}
 
   getOrders(): Observable<IOrder[]> {
-    return (
-      this.http
-        .get<any>(this.ordersUrl).pipe(
-        // .do(data => console.log(JSON.stringify(data)))
-        map(data => data),
-        catchError(this.handleError),)
+    return this.http.get<any>(this.ordersUrl).pipe(
+      // .do(data => console.log(JSON.stringify(data)))
+      map(data => data),
+      catchError(this.handleError)
     );
   }
   getOrder(id): Observable<IOrder[]> {
-    return (
-      this.http
-        .get<any>(this.orderUrl + id).pipe(
-        // .do(data => console.log(JSON.stringify(data)))
-        map(data => data),
-        catchError(this.handleError),)
+    return this.http.get<any>(this.orderUrl + id).pipe(
+      // .do(data => console.log(JSON.stringify(data)))
+      map(data => data),
+      catchError(this.handleError)
     );
   }
   private handleError(error: Response) {
