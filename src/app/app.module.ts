@@ -1,10 +1,10 @@
 // Core
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Http
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 // Components
 import { AppComponent } from './app.component';
 import { OrderComponent } from './order/order.component';
@@ -17,10 +17,12 @@ import { UsersComponent } from './users/users.component';
   declarations: [AppComponent, OrderComponent, OrderDetailComponent, UserComponent, UsersComponent],
   imports: [
     BrowserModule,
-    HttpModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'order', component: OrderComponent },
+      { path: 'users', component: UsersComponent },
       { path: 'detail/:id', component: OrderDetailComponent },
       { path: '', redirectTo: 'order', pathMatch: 'full' }
     ])

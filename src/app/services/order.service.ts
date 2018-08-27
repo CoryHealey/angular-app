@@ -3,13 +3,11 @@ import { throwError as observableThrowError, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import '../shared/rxjs-extensions';
 // The Order model
 import { IOrder } from '../model/order';
 
 @Injectable()
 export class OrderService {
-  // private ordersUrl = 'api/orders';
   private ordersUrl = 'https://jsonplaceholder.typicode.com/posts';
   private orderUrl = 'https://jsonplaceholder.typicode.com/posts/';
 
